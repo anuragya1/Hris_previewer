@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HRIS Import Preview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #22252a;
+        --muted: #5a6472;
+        --line: #d8dde5;
+        --panel: #ffffff;
+        --surface: #f6f7f9;
+        --accent: #0b6b68;
+        --danger: #a7352a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--surface);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.45;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 32px auto;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 32px;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      form,
+      section {
+        margin-top: 20px;
+        padding: 20px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+
+      input[type="file"] {
+        width: 100%;
+        max-width: 540px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      button {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 10px 14px;
+        border: 0;
+        border-radius: 6px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+
+      .metric {
+        min-height: 96px;
+        padding: 16px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .metric span {
+        display: block;
+        min-height: 38px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 30px;
+      }
+
+      .alert {
+        border-color: #e2aaa4;
+        background: #fff7f6;
+        color: var(--danger);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        overflow-wrap: anywhere;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border-top: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        font-size: 14px;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .empty {
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 720px) {
+        main {
+          width: min(100% - 20px, 1120px);
+          margin: 20px auto;
+        }
+
+        form,
+        section {
+          padding: 14px;
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+          table-layout: auto;
+        }
+
+        th,
+        td {
+          min-width: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>HRIS Import Preview</h1>
+        <p>Upload a CSV to validate identity fields, resolve managers, and inspect hierarchy risks before importing.</p>
+      </header>
+
+      <form action="/preview" method="post" enctype="multipart/form-data">
+        <label for="csv_file">HRIS CSV file</label>
+        <input id="csv_file" name="csv_file" type="file" accept=".csv,text/csv" required>
+        <br>
+        <button type="submit">Preview import</button>
+      </form>
+
+      {{RESULT}}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+employee_id,employee_name,email,manager_id,manager_email,department
+CEO1,Chris CEO,chris@example.com,,,Executive
+M1,Mina Manager,MINA@example.com,CEO1,,People
+E1,Eli Employee,eli@example.com,,mina@example.com,People
+E2,Robin Report,robin@example.com,M1,mina@example.com,People
+DUP,Duplicate One,dupe1@example.com,,,Sales
+DUP,Duplicate Two,dupe2@example.com,,,Sales
+BAD1,Bad Manager,bad.manager@example.com,UNKNOWN,,Operations
+SELF1,Self Manager,self@example.com,SELF1,,Operations
+C1,Cycle One,c1@example.com,C2,,Engineering
+C2,Cycle Two,c2@example.com,C1,,Engineering
+INTO1,Reports Into Cycle,into@example.com,C1,,Engineering
