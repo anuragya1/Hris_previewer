@@ -46,10 +46,4 @@ python -m unittest
 
 Parsing and validation are linear in the number of rows. The app builds hash maps for employee IDs, emails, and reporting edges, so manager lookup is O(1) average-case per employee. Cycle detection walks the manager pointers iteratively and visits each reporting edge once, making hierarchy analysis O(n) time and O(n) space for about 100,000 employees without relying on Python recursion depth.
 
-## Approximate Time
 
-About 90 minutes including implementation, tests, and README.
-
-## AI Tools Used
-
-I used OpenAI Codex as a coding assistant to scaffold the standard-library web app, organize the validation logic, and write focused tests. I accepted the suggestion to keep parsing and hierarchy analysis in `hris_preview.py` so it can be tested without a browser. I would still explain and validate the algorithm myself before submission, especially the cycle detection and duplicate identity behavior.
