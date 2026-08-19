@@ -7,7 +7,7 @@ A small standard-library Python web app for previewing an HRIS CSV before employ
 Requires Python 3.11+.
 
 ```bash
-python app.py
+python main.py
 ```
 
 Open http://127.0.0.1:8000 and upload a CSV with these headers, in any order:
