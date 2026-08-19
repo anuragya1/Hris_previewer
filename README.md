@@ -48,7 +48,7 @@ Parsing and validation are linear in the number of rows. The app builds hash map
 
 ## Approximate Time
 
-About 90 minutes including implementation, tests, and README.
+About 20 minutes including implementation, tests, and README.
 
 ## AI Tools Used
 
